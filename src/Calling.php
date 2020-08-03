@@ -36,8 +36,7 @@ class Calling {
             try {
                 self::$instance = $class::make();
             } catch (Exception $e) {
-                echo $e->getMessage();
-                exit;
+                throw new Exception($e->getMessage());
             }
         }
         return self::$instance;

@@ -102,11 +102,9 @@ class Http {
         self::$responseCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 
         if (!self::checkSuccess($res)) {
-            echo self::checkError($res);exit;
             self::setErrInfo("请求地址错误 :" . self::checkErrorNo($res) . " - " . self::checkError($res) ."，请联系管理员解决");
             curl_close($ch);
             return false;
-
         }
 
 		curl_close($ch);
